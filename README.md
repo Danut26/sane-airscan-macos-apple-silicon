@@ -1,11 +1,11 @@
-# sane-airscan for macOS Apple Silicon
+# sane-airscan scanner driver for macOS Apple Silicon
 
-Native ARM64 port of sane-airscan for modern macOS.
+Native ARM64 scanner driver for modern macOS, based on sane-airscan.
 
-Supports network scanners using:
+Provides network scanning support using:
 - WSD / WS-Scan
 - eSCL / AirScan
-- SANE-compatible applications
+- SANE-compatible scanning applications
 
 # ❤️ Support this project
 
