@@ -29,6 +29,8 @@ Other scanners supported by upstream sane-airscan may also work, but were not te
 
 ## Requirements
 
+The scanner and the Mac must already be connected to the same Wi-Fi network.
+
 Install MacPorts for Apple Silicon, then run:
 
     sudo port install avahi gnutls
