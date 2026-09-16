@@ -1,3 +1,4 @@
+/* Modified for macOS/Darwin compatibility by Danut26, 2026-09. */
 /* AirScan (a.k.a. eSCL) backend for SANE
  *
  * Copyright (C) 2019 and up by Alexander Pevzner (pzz@apevzner.com)

@@ -1,3 +1,4 @@
+/* Modified for macOS/Darwin compatibility by Danut26, 2026-09. */
 /* sane - Scanner Access Now Easy.
  *
  * Copyright (C) 2020 Thierry HUCHARD <thierry@ordissimo.com>

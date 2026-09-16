@@ -1,3 +1,4 @@
+# Modified for macOS/Darwin compatibility by Danut26, 2026-09.
 # USER-SETTABLE VARIABLES
 #
 # The following variables can be overridden by user (i.e.,
