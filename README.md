@@ -19,13 +19,17 @@ Available options:
 
 ## Tested
 
-- Xerox WorkCentre 3025
-- macOS Tahoe 26
-- Apple Silicon ARM64
+Tested the functionalities:
 - WSD / WS-Scan
-- Device discovery and real scanning confirmed working
+- device discovery / real scanning
 
-Other scanners supported by upstream sane-airscan may also work, but were not tested by this project.
+of the scanner:
+- Xerox WorkCentre 3025
+
+on the Apple Silicon ARM64 Mac:
+- MacBook Air M3 running macOS Tahoe 26
+
+The test confirmed everything working perfectly fine. Other scanners supported by upstream sane-airscan may also work, but were not tested by this project.
 
 ## Requirements
 
