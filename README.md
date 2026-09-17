@@ -14,8 +14,8 @@ Help keep this project maintained and compatible with future macOS versions.
 [Support the project on GitHub Sponsors](https://github.com/sponsors/Danut26)
 
 Available options:
-- $1/month
-- $10 one-time
+- $1 / month
+- $5 one-time
 
 ## Tested
 
