@@ -17,6 +17,10 @@ Available options:
 - $1 / month
 - $5 one-time
 
+## Purpose
+
+Being an owner of a XEROX WorkCentre 3025 multifunctional printer / scanner, I was unable anymore to use its scanning capabilities on my new MacBook Air M3, as XEROX did not continue to release any driver for this product in order to support the Apple Silicon computers. At this point I browsed the internet and searched for any third party driver for Apple Silicon computers without any result. Then I have asked myself if it is possible to recompile an existing driver for this processors type. And the only solution available was the sane-airscan generic driver. At the end, everything worked fine and I was able to use the scanner once again on a new macOS release. I have then decided to share the entire project with everybody through GitHub, in order for others to freely benefit, enjoy and use the recompiled driver. From my point of view, I would gladly appreciate if a very moderate amount will be donated in order to support the existence of this driver for future macOS releases.
+
 ## Tested
 
 Tested the functionalities:
