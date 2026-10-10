@@ -20,8 +20,6 @@ CONF=Contents/Resources/_config/sane
     echo "Unsupported NAPS2 layout: ARM64 SANE backend or configuration missing." >&2
     exit 1
 }
-/bin/mkdir -p /usr/local/var/backups/sane-airscan
-BACKUP=$(/usr/bin/mktemp -d /usr/local/var/backups/sane-airscan/naps2-XXXXXXXX)
 STAGE=$(/usr/bin/mktemp -d /Applications/.sane-airscan-XXXXXXXX)
 cleanup() { /bin/rm -rf "$STAGE"; }
 trap cleanup EXIT
@@ -40,15 +38,10 @@ EOF
 fi
 /usr/bin/codesign --force --deep --sign - "$NEW"
 /usr/bin/codesign --verify --deep "$NEW"
-if [ -d "$APP" ]; then
-    /usr/bin/ditto "$APP" "$BACKUP/NAPS2-AppleSilicon.app"
-    /bin/mv "$APP" "$STAGE/previous.app"
-fi
+/bin/rm -rf "$APP"
 if ! /bin/mv "$NEW" "$APP"; then
-    [ ! -d "$STAGE/previous.app" ] || /bin/mv "$STAGE/previous.app" "$APP"
-    echo "Installation failed; previous app restored." >&2
+    echo "Could not install the prepared NAPS2 app." >&2
     exit 1
 fi
 echo "NAPS2 integration installed: $APP"
-echo "Backup: $BACKUP"
 echo "Existing scanner configuration and NAPS2 profiles were preserved."

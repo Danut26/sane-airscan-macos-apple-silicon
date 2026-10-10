@@ -24,12 +24,6 @@ set -euo pipefail
 for lib in libavahi-common.3.dylib libavahi-client.3.dylib libdbus-1.3.dylib libxml2.16.dylib libgnutls.30.dylib libjpeg.8.dylib libpng16.16.dylib libtiff.6.dylib; do
     [ -e "/opt/local/lib/$lib" ] || { echo "Missing MacPorts dependency: $lib" >&2; exit 1; }
 done
-if [ -f /usr/local/lib/sane-airscan/libsane-airscan.so.1 ]; then
-    mkdir -p /usr/local/var/backups/sane-airscan
-    backup=$(mktemp -d /usr/local/var/backups/sane-airscan/driver-XXXXXXXX)
-    cp -p /usr/local/lib/sane-airscan/libsane-airscan.so.1 "$backup/"
-    echo "Previous driver backed up to $backup"
-fi
 EOF
 /bin/cat > "$WORK/driver/postinstall" <<'EOF'
 #!/bin/bash
@@ -43,8 +37,8 @@ EOF
 /bin/cp "$HERE/integrate-naps2.sh" "$WORK/naps2/postinstall"
 /bin/cp "$HERE/uninstall-driver.sh" "$WORK/uninstall/postinstall"
 /bin/chmod 755 "$WORK/driver/"* "$WORK/naps2/postinstall" "$WORK/uninstall/postinstall"
-/usr/bin/pkgbuild --root "$WORK/root" --scripts "$WORK/driver" --ownership recommended --identifier com.sane-airscan.macos --version 1.0.0 --install-location / "$OUTPUT/SANE-AirScan-macOS-AppleSilicon-Driver-Install.pkg"
-/usr/bin/pkgbuild --nopayload --scripts "$WORK/naps2" --identifier com.sane-airscan.naps2-integration --version 1.0.0 "$OUTPUT/SANE-AirScan-macOS-AppleSilicon-NAPS2-Integration.pkg"
-/usr/bin/pkgbuild --nopayload --scripts "$WORK/uninstall" --identifier com.sane-airscan.uninstall --version 1.0.0 "$OUTPUT/SANE-AirScan-macOS-AppleSilicon-Driver-Uninstall.pkg"
+/usr/bin/pkgbuild --root "$WORK/root" --scripts "$WORK/driver" --ownership recommended --identifier com.sane-airscan.macos --version 1.0.1 --install-location / "$OUTPUT/SANE-AirScan-macOS-AppleSilicon-Driver-Install.pkg"
+/usr/bin/pkgbuild --nopayload --scripts "$WORK/naps2" --identifier com.sane-airscan.naps2-integration --version 1.0.1 "$OUTPUT/SANE-AirScan-macOS-AppleSilicon-NAPS2-Integration.pkg"
+/usr/bin/pkgbuild --nopayload --scripts "$WORK/uninstall" --identifier com.sane-airscan.uninstall --version 1.0.1 "$OUTPUT/SANE-AirScan-macOS-AppleSilicon-Driver-Uninstall.pkg"
 (cd "$OUTPUT" && /usr/bin/shasum -a 256 ./*.pkg > SHA256SUMS.txt)
 echo "Packages built in $OUTPUT. Not signed with Developer ID Installer."

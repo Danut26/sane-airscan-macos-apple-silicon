@@ -15,7 +15,7 @@ The header directory must contain `sane/sane.h` and `sane/saneopts.h`. Public
 headers from SANE 1.4.0 were used for this ARM64 build. Runtime dependencies
 remain in `/opt/local`; they are not bundled in the packages. The package build
 refuses to overwrite existing outputs and creates the three packages named in
-README.md, with package version 1.0.0. Packages are unsigned; the integrated
+README.md, with package version 1.0.1. Packages are unsigned; the integrated
 NAPS2 app receives an ad-hoc signature after its bundled backend is installed.
 
 NAPS2 uses its own bundled SANE environment. `tools/integrate-naps2.sh` places
@@ -24,12 +24,14 @@ the backend in `Contents/Resources/_macarm/sane/libsane-airscan.1.so`, enables
 configuration only when one is absent. It updates NAPS2-AppleSilicon if present
 or creates it from NAPS2.app, without changing the original app. Existing
 configuration and user profiles are preserved. The installer validates the
-ARM64 layout, stages and verifies the signed app, and backs up a previous
+ARM64 layout and stages and verifies the signed app before replacing the
 integration. Close NAPS2 before installation or removal.
 
-The uninstall package backs up and removes the system backend, its alias and
+The uninstall package removes the system backend, its alias and
 configuration, and the integrated NAPS2-AppleSilicon app. It leaves the original
 NAPS2.app, user profiles and MacPorts dependencies installed.
+
+Installation, NAPS2 integration and uninstallation do not create backup copies.
 
 The backend discovers supported eSCL and WSD scanners without device-specific
 addresses or location restrictions. Physical discovery, capability queries,
