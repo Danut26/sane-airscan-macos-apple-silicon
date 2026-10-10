@@ -1,0 +1,8 @@
+.DS_Store
+objs/
+*.dSYM/
+libsane-airscan.so.1
+airscan-discover
+test-devcaps
+test-zeroconf
+test-http-nonblocking
