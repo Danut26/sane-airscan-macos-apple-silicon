@@ -23,17 +23,15 @@ Being an owner of a XEROX WorkCentre 3025 multifunctional printer / scanner, I w
 
 ## Tested
 
-Tested the functionalities:
-- WSD / WS-Scan
-- device discovery / real scanning
-
-of the scanner:
+Tested scanners:
 - Xerox WorkCentre 3025
+- Epson Expression Home XP-205
 
-on the Apple Silicon ARM64 Mac:
-- MacBook Air M3 running macOS Tahoe 26
+Network discovery and real scanning over WSD / WS-Scan were successfully tested with NAPS2-AppleSilicon on a MacBook Air M3 (ARM64). This release retains the same tested scanning backend.
 
-The test confirmed everything working perfectly fine. Other scanners supported by upstream sane-airscan may also work, but were not tested by this project.
+Related models expected to be compatible, but not individually tested:
+- Epson Expression Home XP-200 / XP-207
+- Xerox WorkCentre 3025BI / 3025NI
 
 ## Requirements
 
